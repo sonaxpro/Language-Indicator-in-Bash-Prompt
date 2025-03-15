@@ -10,14 +10,14 @@ update_lang() {
     # echo "$(date) [DEBUG] LANG=$LANG" >> "$logfile"
 
     case "$LANG" in
-        "de") FLAG="🇩🇪" ;;
-        "ru") FLAG="🇷🇺" ;;
-        *) FLAG="❓" ;;
+        "de") FLAG="🇩🇪" ;;  # German flag
+        "ru") FLAG="🇷🇺" ;;  # Russian flag
+        *) FLAG="❓" ;;      # Unknown layout
     esac
     
     # echo "$(date) [DEBUG] FLAG=$FLAG" >> "$logfile"
     
-    # Обновляем PS1 напрямую
+    # Update PS1 directly
     # PS1="\[\e[1;34m\]\u@\h \[\e[1;32m\]\w \[\e[1;33m\]$FLAG\[\e[0m\]\$ "
     PS1="\[\e[${PROMPT_COLOR}${PROMPT_HIGHLIGHT:+;$PROMPT_HIGHLIGHT}m\]\u@\h\[\e[0m\]:\[\e[${PROMPT_DIR_COLOR}${PROMPT_HIGHLIGHT:+;$PROMPT_HIGHLIGHT}m\]\w\[\e[0m\] $FLAG\$ "
 
@@ -25,10 +25,10 @@ update_lang() {
     # echo "$(date) [DEBUG] PS1=$PS1" >> "$logfile"
 }
 
-# Удаляем PROMPT_COMMAND от Fedora, чтобы избежать конфликта
+# Remove PROMPT_COMMAND from Fedora to avoid conflicts
 unset PROMPT_COMMAND
-# echo "$(date) [DEBUG] PROMPT_COMMAND отключён" >> "$logfile"
+# echo "$(date) [DEBUG] PROMPT_COMMAND disabled" >> "$logfile"
 
-# Запускаем цикл напрямую через PROMPT_COMMAND в основном процессе
+# Start the loop directly through PROMPT_COMMAND in the main process
 PROMPT_COMMAND='update_lang'
 # echo "$(date) [DEBUG] PROMPT_COMMAND=$PROMPT_COMMAND" >> "$logfile"
