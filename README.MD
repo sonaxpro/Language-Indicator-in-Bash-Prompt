@@ -1,6 +1,6 @@
 # Language-Indicator-in-Bash-Prompt
 
-📝 Description | Описание
+##  📝 Description | Описание
 ```bash
 user@host:~/git_repos/Language-Indicator-in-Bash-Prompt 🇩🇪 $ touch file
 user@host:~/git_repos/Language-Indicator-in-Bash-Prompt 🇷🇺 $ touch file
